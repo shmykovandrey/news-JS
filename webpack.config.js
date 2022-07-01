@@ -1,4 +1,6 @@
 const path = require('path');
+const EslingPlugin = require('eslint-webpack-plugin');
+
 const {
   merge
 } = require('webpack-merge');
@@ -6,6 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin');
+
+new EslingPlugin({ extensions: 'ts' })
 
 const baseConfig = {
   entry: path.resolve(__dirname, './src/index.ts'),
@@ -15,10 +19,10 @@ const baseConfig = {
       test: /\.css$/i,
       use: ['style-loader', 'css-loader'],
     }, {
-      test: /\.tsx?$/,
+      test: /\.ts$/i,
       use: 'ts-loader',
       exclude: /node_modules/,
-    }, ],
+    },],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
