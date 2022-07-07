@@ -9,7 +9,6 @@ const {
   CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 
-new EslingPlugin({ extensions: 'ts' })
 
 const baseConfig = {
   entry: path.resolve(__dirname, './src/index.ts'),
@@ -37,6 +36,7 @@ const baseConfig = {
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
+    new EslingPlugin({ extensions: 'ts' }),
   ],
 };
 
