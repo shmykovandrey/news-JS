@@ -1,3 +1,5 @@
+const a: string = 's';
+
 enum Category {
   business,
   entertainment,
